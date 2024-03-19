@@ -6,15 +6,15 @@ services:
       - --host
       - 0.0.0.0
       - --port
-      - '8080'
+      - '7777'
       - --scheme
       - http
     image: semitechnologies/weaviate:1.23.0-rc.1
     ports:
-      - 8080:8080
+      - 7777:7777
       - 50051:50051
     volumes:
-      - weaviate_data:/var/lib/weaviate
+      - weaviate_db:/var/lib/weaviate
     restart: on-failure:0
     environment:
       QUERY_DEFAULTS_LIMIT: 25
@@ -28,5 +28,5 @@ services:
       AUTHENTICATION_APIKEY_USERS: '<YOUR-API-AUTHENTICATION-PASSWORD>'
 
 volumes:
-  weaviate_data:
+  weaviate_db:
     driver: local
